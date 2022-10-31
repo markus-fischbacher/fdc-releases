@@ -1,0 +1,68 @@
+const fs = require('fs');
+const parameterService = require('./parameter-service');
+const shouldLogToConsole = parameterService.getParameter('-clog');
+const logFileName = parameterService.getParameter('-flog');
+
+function info(text) {
+    logInternal('I', text);
+}
+
+function warning(text) {
+    logInternal('W', text);
+}
+function error(text) {
+    logInternal('E', text);
+}
+
+function logInternal(logType, text) {
+    if (!shouldLogToConsole) {
+        logToFile(logType, text);
+        return;
+    }
+    logToConsole(logType, text);
+}
+
+function logToFile(logType, text) {
+    const toWrite = logType.charAt(0).toUpperCase() + ' - ' + toDateTimeStr(new Date()) + ' - ' + text + '\n';
+    fs.appendFile(logFileName, toWrite, (err) => {
+        if (err) {
+            logToConsole('E', 'Could not write log to file ' + logFileName);
+            logToConsole(logType, toWrite);
+            logToConsole(err);
+        }
+    });
+}
+
+function logToConsole(logType, text) {
+    switch (logType) {
+        case 'I': {
+            console.log(text);
+            break;
+        }
+        case 'W': {
+            console.warn(text);
+            break;
+        }
+        case 'E': {
+            console.error(text);
+            break;
+        }
+    }
+}
+
+function toDateTimeStr(dt) {
+    return `${
+        dt.getDate().toString().padStart(2, '0')}.${
+        (dt.getMonth() + 1).toString().padStart(2, '0')}.${
+        dt.getFullYear().toString().padStart(4, '0')} ${
+        dt.getHours().toString().padStart(2, '0')}:${
+        dt.getMinutes().toString().padStart(2, '0')}:${
+        dt.getSeconds().toString().padStart(2, '0')}.${
+        dt.getMilliseconds().toString().padStart(3, '0')}`;
+}
+
+module.exports = {
+    info,
+    warning,
+    error
+};

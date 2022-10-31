@@ -1,0 +1,20 @@
+{
+    "ANONYMOUS": [
+        { "url": "/login", "method": ["POST"] },
+        { "url": "/refreshtoken", "method": ["POST"] },
+        { "url": "/health", "method": ["GET"] },
+        { "url": "/version", "method": ["GET"] }
+
+    ],
+    "AUTHORIZED": [
+        { "url": "/change-password", "method": ["PUT"]},
+        { "url": "/auth/ping", "method": ["GET"] },
+        { "url": "/config/mailtemplates/.*", "method": ["GET"] },
+        { "url": "/config/fdas/.*", "method": ["GET"] }
+    ],
+    "USER": [
+    ],
+    "ADMIN": [
+        { "url": ".*?", "method": [".*?"] }
+    ]
+}

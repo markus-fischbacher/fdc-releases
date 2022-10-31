@@ -1,0 +1,267 @@
+{
+  "MENU": {
+    "DASHBOARD": "Dashboard",
+    "GROUPS": "Gruppen/FDAs",
+    "SYSTEM": "System",
+    "LOGIN": "Anmelden",
+    "LOGOUT": "Abmelden",
+    "RELOADCONFIG": "Änderungen übernehmen"
+  },
+  "SYSHEALTH": {
+    "TITLE": "Systemzustand",
+    "CONNECTED": "Verbunden",
+    "DISCONNECTED": "Getrennt",
+    "TIMEDIFFOK": "Zeitdifferenz OK",
+    "TIMEDIFFTOOBIG": "Zeitdifferenz zu groß",
+    "TIMESTATUSUNKNOWN": "Zeitstatus unbekannt",
+    "MINUTES": "Minuten",
+    "ALLSERVICESRUNNING": "Alle Services ok",
+    "GUIBACKENDSERVICERUNNING": "GUI-Backend Service läuft",
+    "GUIBACKENDSERVICESTOPPED": "GUI-Backend Service läuft nicht",
+    "GUIBACKENDSERVICESTATUSUNKNOWN": "GUI-Backend Service Status unbekannt!",
+    "APPLICATIONSERVICERUNNING": "Application Service läuft",
+    "APPLICATIONSERVICESTOPPED": "Application Service läuft nicht",
+    "APPLICATIONSERVICESTATUSUNKNOWN": "Application Service Status unbekannt",
+    "MAILERSERVICERUNNING": "Mail Service läuft",
+    "MAILERSERVICESTOPPED": "Mail Service läuft nicht",
+    "MAILERSERVICESTATUSUNKNOWN": "Mail Service Status unbekannt",
+    "LOADING": "Status der Services wird geladen ...",
+    "OK": "System OK",
+    "WARNING": "System Warnung!",
+    "FDAS": {
+      "ONLINECONFIGURED": "FDA{{plural}} verbunden",
+      "OFFLINECONFIGURED": "FDA{{plural}} nicht verbunden",
+      "ONLINEUNCONFIGURED": "FDA{{plural}} verbunden aber nicht konfiguriert"
+    },
+    "BUSMODE": {
+      "UNKNOWN": "Busmodus unbekannt",
+      "RING": "Ring",
+      "LINE": "Linie"
+    }
+  },
+  "MAINTENANCEMODE": {
+    "TITLE": "Wartungsmodus",
+    "MAINTENANCE": "Wartung",
+    "START": "Wartung starten",
+    "UPDATE": "Wartungsende ändern",
+    "END": "Wartung beenden",
+    "TILL": "Bis",
+    "TIME": {
+      "THIRTYMINUTES": "30 Minuten",
+      "ONEHOUR": "1 Stunde",
+      "THREEHOURS": "3 Stunden",
+      "FIVEHOURS": "5 Stunden",
+      "EIGHTHOURS": "8 Stunden"
+    },
+    "REPAIR": "Geräte am Bus neu verbinden"
+  },
+  "SYSCONF": {
+    "TITLE": "Systemkonfiguration",
+    "TIME": {
+      "SETTIME": "FDC Zeit setzen",
+      "LOADINGSYSTEMTIME": "Lade aktuelle FDC Zeit",
+      "LOCALTIME": "Lokale Rechner Zeit",
+      "FDCTIME": "FDC Zeit",
+      "SYNCLOCALANDSAVE": "Synchronisiere FDC mit Rechner Zeit",
+      "SAVEMANUAL": "Manuelle Einstellungen speichern"
+    },
+    "NETWORK": {
+      "TITLE": "Netzwerk",
+      "DHCP": "DHCP aktiv",
+      "IP": "IP Adresse",
+      "SUBNETMASK": "Subnet Maske",
+      "GATEWAY": "Gateway",
+      "DNS1": "DNS 1",
+      "DNS2": "DNS 2",
+      "HOSTNAME": "Hostname"
+    },
+    "NTP": {
+      "TITLE": "NTP Server",
+      "ENABLED": "Aktiv",
+      "SERVER1": "Server 1",
+      "SERVER2": "Server 2",
+      "TIMEZONE": "Zeitzone",
+      "TIMEZONES": {
+        "BERLIN": "Berlin",
+        "VIENNA": "Wien",
+        "ZURICH": "Zürich"
+      }
+    },
+    "CONFIGFILES": {
+      "TITLE": "Configuration download/upload",
+      "DOWNLOAD": "Download Configuration",
+      "UPLOAD": "Upload configuration",
+      "CONFIRMUPLOADTITLE": "Hochladen der Konfiguration Bestätigen",
+      "CONFIRMUPLOADMESSAGE": "Wollen Sie wirklich die bestehende Konfiguration durch das gewählte File ersetzen?"
+    }
+  },
+  "MAILCONF": {
+    "TITLE": "E-Mail Einstellungen",
+    "SMTP": {
+      "TITLE": "SMTP Server",
+      "SECURITY": "Verschlüsselung",
+      "UNSAFE": "Unsicher",
+      "SECURE": "Sicher",
+      "FORCEDSECURE": "Sicher erzwungen",
+      "SERVER": "Server",
+      "PORT": "Port",
+      "USER": "Benutzername",
+      "PASSWORD": "Passwort",
+      "SENDERMAIL": "Sender Adresse",
+      "SENDERNAME": "Sender Name"
+    }
+  },
+  "INPUTS": {
+    "TITLE": "Eingänge",
+    "NEW": "Eingang konfigurieren"
+  },
+  "OUTPUTS": {
+    "TITLE": "Ausgang",
+    "NEW": "Ausgang konfigurieren"
+  },
+  "IO": {
+    "NUMBER": "Nummer",
+    "NUMBER-TERMINAL": "Anschlussnummer",
+    "INVERT": "Invertieren",
+    "INVERTED": "Invertiert",
+    "DISABLED": "Deaktiviert",
+    "STATUS": "Zustand",
+    "HIGH": "Aktiv",
+    "LOW": "Inaktiv"
+  },
+  "MAILTEMPLATES": {
+    "TITLE": "E-Mail Vorlage",
+    "NEW": "Vorlage erstellen",
+    "SUBJECT": "Titel",
+    "BODY": "Inhalt",
+    "RECIPIENTS": "Empfänger"
+  },
+  "FDACONFIG": {
+    "GROUPS": {
+      "TITLE": "Gruppen",
+      "NEW": "Neue Gruppe",
+      "EDIT": "Gruppe editieren",
+      "ALARMINPUT": "BMA Alarmeingang",
+      "VENTINPUT": "Anforderung Lüftung",
+      "VENTOUTPUT": "Abschaltung Lüftung",
+      "MAIL": {
+        "ALARM": "E-Mail Vorlage - Alarm",
+        "ERROR": "E-Mail Vorlage - Fehler",
+        "TIMEOUT": "E-Mail Vorlage - Timeout"
+      },
+      "DAMPERS": "Klappen in Gruppe"
+    },
+    "FDAS": {
+      "TITLE": "FDAs",
+      "NEW": "Neuen FDA konfigurieren",
+      "VBUSSTATE": {
+        "ALARM": "VBus-Relais Zustand - Alarm",
+        "BOOT": "VBus-Relais Zustand - Systemstart",
+        "NORMAL": "VBus-Relais Zustand - Normalbetrieb",
+        "POWERLOSS": "VBus-Relais Zustand - Stromausfall",
+        "BUSERROR": "VBus-Relais Zustand - Busfehler"
+      },
+      "VBUSSTATES": {
+        "OFF": "Aus",
+        "ON": "Ein",
+        "NOCHANGE": "Keine Änderung"
+      },
+      "DAMPERS": {
+        "FIRST": "Klappe 1",
+        "SECOND": "Klappe 2",
+        "MODE": "Modus",
+        "MODES": {
+          "DISABLED": "Deaktiviert",
+          "AUTOMATIC": "Automatik",
+          "MANUALOPEN": "Manuell offen",
+          "MANUALCLOSE": "Manuell geschlossen",
+          "UNKNOWN": "Unbekannt"
+        },
+        "CHANGEMODE": "Modus ändern",
+        "CHANGEMODE1": "Modus Damper 1 ändern",
+        "CHANGEMODE2": "Modus Damper 2 ändern",
+        "TYPE": "Typ",
+        "TYPES": {
+          "AUXILIARY": "Nebenklappe",
+          "MAIN": "Hauptklappe",
+          "UNDEFINED": "Klappe nicht konfiguriert"
+        },
+        "STATE": {
+          "ALARM": "Klappenzustand - Alarm",
+          "BOOT": "Klappenzustand - Systemstart",
+          "NORMAL": "Klappenzustand - Normalbetrieb",
+          "POWERLOSS": "Klappenzustand - Stromausfall",
+          "BUSERROR": "Klappenzustand - Busfehler"
+        },
+        "STATES": {
+          "UNDEFINED": "Undefiniert",
+          "AVAILABLE": "Verfügbar",
+          "CLOSED": "Geschlossen",
+          "CLOSING": "Schließend",
+          "OPEN": "Offen",
+          "OPENED": "Geöffnet",
+          "OPENING": "Öffnend",
+          "TIMEOUT": "Timeout",
+          "ALARM": "Alarm",
+          "RELAYON": "Relais EIN",
+          "NOCHANGE": "Keine Änderung"
+        },
+        "GROUP": "Gruppe",
+        "GROUPS": "Gruppen",
+        "NOGROUP": "Keine Gruppe",
+        "UNAVAILABLE": "Damper nicht verbunden - FDA Konfiguration kontrollieren!"
+      },
+      "EDIT": {
+        "FDA": "FDA"
+      },
+      "REPLACE": "FDA ersetzen"
+    },
+    "POSITION": "Position"
+  },
+  "DASHBOARD": {
+    "TITLES": {
+      "INPUTS": "Eingänge",
+      "OUTPUTS": "Ausgänge",
+      "GROUPS": "Gruppen",
+      "FDAS": "FDAs"
+    },
+    "FDAS": {
+      "CONFIGURE": "Konfigurieren",
+      "NOTCONNECTED": "NICHT VERBUNDEN",
+      "OPERATIONAL": "In Betrieb",
+      "UNCONFIGURED": "Nicht konfiguriert",
+      "LASTCONTACT": "Letzter Kontakt",
+      "BUSMODE": {
+        "TITLE": "Bus Modus",
+        "LINE": "Bus im Linien Modus",
+        "RING": "Bus im Ring Modus"
+      },
+      "DYNAMICALADDRESS": "Dynamical Address",
+      "ONBUSBRANCH": "Verbunden mit Bus",
+      "B1": "B1",
+      "B2": "B2",
+      "FDACOUNT": "Anzahl FDAs"
+    },
+    "NOACTIVEDAMPERSINGROUP": "Keine aktiven Damper in Gruppe!"
+  },
+  "DEVICES": {
+    "FDC": "FDC",
+    "FDA": "FDA"
+  },
+  "USER": {
+    "LOGIN": "Anmelden",
+    "LOGINFAILED": "Anmeldung fehlgeschlagen",
+    "PASSWORD": "Passwort"
+  },
+  "OK": "Ok",
+  "CANCEL": "Abbrechen",
+  "SAVE": "Speichern",
+  "DELETE": "Löschen",
+  "EDIT": "Editieren",
+  "YES": "Ja",
+  "NO": "Nein",
+  "NAME": "Name",
+  "DESCRIPTION": "Beschreibung",
+  "PHYSICALADDRESS": "Physikalische Adresse",
+  "STATUS": "Zustand"
+}

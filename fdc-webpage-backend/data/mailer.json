@@ -1,0 +1,1 @@
+{"smtp":{"type":"Secure","url":"smtp.office365.com","port":587,"user":"dev@innofriends.world","password":"entw_Team7881","senderMail":"dev@innofriends.world","senderName":"Innofriends Entwicklung"}}

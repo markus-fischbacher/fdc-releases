@@ -1,0 +1,267 @@
+{
+  "MENU": {
+    "DASHBOARD": "Dashboard",
+    "GROUPS": "Groups/FDAs",
+    "SYSTEM": "System",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "RELOADCONFIG": "Apply changes"
+  },
+  "SYSHEALTH": {
+    "TITLE": "System Health",
+    "CONNECTED": "Connected",
+    "DISCONNECTED": "No connection!",
+    "TIMEDIFFOK": "Timedifference normal",
+    "TIMEDIFFTOOBIG": "Timedifference too big!",
+    "TIMESTATUSUNKNOWN": "Time status unknown!",
+    "MINUTES": "minutes",
+    "ALLSERVICESRUNNING": "All services ok",
+    "GUIBACKENDSERVICERUNNING": "GUI backend service running",
+    "GUIBACKENDSERVICESTOPPED": "GUI backend service stopped, or no network connectivity!",
+    "GUIBACKENDSERVICESTATUSUNKNOWN": "GUI backend service status unknown!",
+    "APPLICATIONSERVICERUNNING": "Application service running",
+    "APPLICATIONSERVICESTOPPED": "Application service stopped!",
+    "APPLICATIONSERVICESTATUSUNKNOWN": "Application service status unknown!",
+    "MAILERSERVICERUNNING": "Mailer service running",
+    "MAILERSERVICESTOPPED": "Mailer service stopped!",
+    "MAILERSERVICESTATUSUNKNOWN": "Mailer service status unknown!",
+    "LOADING": "Loading system status...",
+    "OK": "System OK",
+    "WARNING": "System warning!",
+    "FDAS": {
+      "ONLINECONFIGURED": "FDA{{plural}} online",
+      "OFFLINECONFIGURED": "FDA{{plural}} offline",
+      "ONLINEUNCONFIGURED": "FDA{{plural}} online and unconfigured"
+    },
+    "BUSMODE": {
+      "UNKNOWN": "Bus mode unknown",
+      "RING": "Ring",
+      "LINE": "Line"
+    }
+  },
+  "MAINTENANCEMODE": {
+    "TITLE": "Maintenance mode",
+    "MAINTENANCE": "Maintenance",
+    "START": "Start maintenance",
+    "UPDATE": "Update maintenance end time",
+    "END": "End maintenance",
+    "TILL": "Till",
+    "TIME": {
+      "THIRTYMINUTES": "30 minutes",
+      "ONEHOUR": "1 hour",
+      "THREEHOURS": "3 hours",
+      "FIVEHOURS": "5 hours",
+      "EIGHTHOURS": "8 hours"
+    },
+    "REPAIR": "Repair bus devices"
+  },
+  "SYSCONF": {
+    "TITLE": "System configuration",
+    "TIME": {
+      "SETTIME": "Set FDC time",
+      "LOADINGSYSTEMTIME": "Loading current FDC time",
+      "LOCALTIME": "Local computer date/time",
+      "FDCTIME": "FDC date/time",
+      "SYNCLOCALANDSAVE": "Sync FDC with computer and save",
+      "SAVEMANUAL": "Save manual date/time settings"
+    },
+    "NETWORK": {
+      "TITLE": "Network",
+      "DHCP": "DHCP enabled",
+      "IP": "IP Address",
+      "SUBNETMASK": "Subnet Mask",
+      "GATEWAY": "Gateway",
+      "DNS1": "DNS 1",
+      "DNS2": "DNS 2",
+      "HOSTNAME": "Hostname"
+    },
+    "NTP": {
+      "TITLE": "NTP Server",
+      "ENABLED": "Enabled",
+      "SERVER1": "Server 1",
+      "SERVER2": "Server 2",
+      "TIMEZONE": "Timezone",
+      "TIMEZONES": {
+        "BERLIN": "Berlin",
+        "VIENNA": "Vienna",
+        "ZURICH": "Zurich"
+      }
+    },
+    "CONFIGFILES": {
+      "TITLE": "Configuration download/upload",
+      "DOWNLOAD": "Download Configuration",
+      "UPLOAD": "Upload configuration",
+      "CONFIRMUPLOADTITLE": "Confirm configuration upload",
+      "CONFIRMUPLOADMESSAGE": "Do you really want to replace the configuration by the uploaded file?"
+    }
+  },
+  "MAILCONF": {
+    "TITLE": "Email settings",
+    "SMTP": {
+      "TITLE": "SMTP Server",
+      "SECURITY": "Security",
+      "UNSAFE": "Unsafe",
+      "SECURE": "Secure",
+      "FORCEDSECURE": "Forced secure",
+      "SERVER": "Server",
+      "PORT": "Port",
+      "USER": "User",
+      "PASSWORD": "Password",
+      "SENDERMAIL": "Sender address",
+      "SENDERNAME": "Sender name"
+    }
+  },
+  "INPUTS": {
+    "TITLE": "Inputs",
+    "NEW": "Configure input"
+  },
+  "OUTPUTS": {
+    "TITLE": "Outputs",
+    "NEW": "Configure output"
+  },
+  "IO": {
+    "NUMBER": "Number",
+    "NUMBER-TERMINAL": "Number (Terminal)",
+    "INVERT": "Invert",
+    "INVERTED": "Inverted",
+    "DISABLED": "Disabled",
+    "STATUS": "Status",
+    "HIGH": "High",
+    "LOW": "Low"
+  },
+  "MAILTEMPLATES": {
+    "TITLE": "Mail templates",
+    "NEW": "Configure mail template",
+    "SUBJECT": "Subject",
+    "BODY": "Body",
+    "RECIPIENTS": "Recipients"
+  },
+  "FDACONFIG": {
+    "GROUPS": {
+      "TITLE": "Groups",
+      "NEW": "New group",
+      "EDIT": "Edit group",
+      "ALARMINPUT": "BMA alarm (input)",
+      "VENTINPUT": "Request ventilation",
+      "VENTOUTPUT": "Switch off ventilation",
+      "MAIL": {
+        "ALARM": "Mail template - Alarm",
+        "ERROR": "Mail template - Error",
+        "TIMEOUT": "Mail template - Timeout"
+      },
+      "DAMPERS": "Dampers in group"
+    },
+    "FDAS": {
+      "TITLE": "FDAs",
+      "NEW": "Configure FDA with Dampers",
+      "VBUSSTATE": {
+        "ALARM": "VBus-relay - Alarm",
+        "BOOT": "VBus-relay - System boot",
+        "NORMAL": "VBus-relay - Normal",
+        "POWERLOSS": "VBus-relay - Power loss",
+        "BUSERROR": "VBus-relay - Bus error"
+      },
+      "VBUSSTATES": {
+        "OFF": "Off",
+        "ON": "On",
+        "NOCHANGE": "No change"
+      },
+      "DAMPERS": {
+        "FIRST": "Damper 1",
+        "SECOND": "Damper 2",
+        "MODE": "Mode",
+        "MODES": {
+          "DISABLED": "Disabled",
+          "AUTOMATIC": "Automatic",
+          "MANUALOPEN": "Manual open",
+          "MANUALCLOSE": "Manual close",
+          "UNKNOWN": "Unknown"
+        },
+        "CHANGEMODE": "Change mode",
+        "CHANGEMODE1": "Change mode Damper 1",
+        "CHANGEMODE2": "Change mode Damper 2",
+        "TYPE": "Type",
+        "TYPES": {
+          "AUXILIARY": "Auxiliary damper",
+          "MAIN": "Main damper",
+          "UNDEFINED": "Not configured!"
+        },
+        "STATE": {
+          "ALARM": "Damper state - Alarm",
+          "BOOT": "Damper state - System boot",
+          "NORMAL": "Damper state - Normal",
+          "POWERLOSS": "Damper state - Power loss",
+          "BUSERROR": "Damper state - Bus error"
+        },
+        "STATES": {
+          "UNDEFINED": "Undefined",
+          "AVAILABLE": "Available",
+          "CLOSED": "Closed",
+          "CLOSING": "Closing",
+          "OPEN": "Open",
+          "OPENED": "Opened",
+          "OPENING": "Opening",
+          "TIMEOUT": "Timeout",
+          "ALARM": "Alarm",
+          "RELAYON": "Relay on",
+          "NOCHANGE": "No change"
+        },
+        "GROUP": "Group",
+        "GROUPS": "Groups",
+        "NOGROUP": "No Group",
+        "UNAVAILABLE": "Damper not found - doublecheck FDA config!"
+      },
+      "EDIT": {
+        "FDA": "FDA"
+      },
+      "REPLACE": "Replace FDA"
+    },
+    "POSITION": "Position"
+  },
+  "DASHBOARD": {
+    "TITLES": {
+      "INPUTS": "Inputs",
+      "OUTPUTS": "Outputs",
+      "GROUPS": "Damper groups",
+      "FDAS": "FDAs"
+    },
+    "FDAS": {
+      "CONFIGURE": "Configure",
+      "NOTCONNECTED": "NOT CONNECTED",
+      "OPERATIONAL": "Operational",
+      "UNCONFIGURED": "Unconfigured",
+      "LASTCONTACT": "Last contact",
+      "BUSMODE": {
+        "TITLE": "Bus mode",
+        "LINE": "Bus in line mode",
+        "RING": "Bus in ring mode"
+      },
+      "DYNAMICALADDRESS": "Dynamical Address",
+      "ONBUSBRANCH": "On bus branch",
+      "B1": "B1",
+      "B2": "B2",
+      "FDACOUNT": "FDA count"
+    },
+    "NOACTIVEDAMPERSINGROUP": "No active dampers in this group!"
+  },
+  "DEVICES": {
+    "FDC": "FDC",
+    "FDA": "FDA"
+  },
+  "USER": {
+    "LOGIN": "Login",
+    "LOGINFAILED": "Login failed",
+    "PASSWORD": "Password"
+  },
+  "OK": "Ok",
+  "CANCEL": "Cancel",
+  "SAVE": "Save",
+  "DELETE": "Delete",
+  "EDIT": "Edit",
+  "YES": "Yes",
+  "NO": "No",
+  "NAME": "Name",
+  "DESCRIPTION": "Description",
+  "PHYSICALADDRESS": "Physical Address",
+  "STATUS": "Status"
+}

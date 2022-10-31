@@ -1,0 +1,68 @@
+{
+	"server": {
+		"port": 8080,
+        "origin": "*"
+	},
+    "secret": "some-secret-shit-goes-here",
+    "refreshTokenSecret": "some-secret-refresh-token-shit",
+    "port": 3000,
+    "database": {
+        "path":"./database/fdc.sqlite3"
+    },
+    "data": {
+        "path": "./data/",
+        "temp": "./temp/"
+    },
+    "user": {
+        "requirePasswordChange": false,
+        "passwordSaltCycles": 10,
+        "minPasswordLength": 5,
+        "default": [
+            {
+                "username": "admin",
+                "role": "ADMIN",
+                "password": "123456"
+            }, {
+                "username": "service",
+                "role": "SERVICE",
+                "password": "123456"
+            }, {
+                "username": "user",
+                "role": "USER",
+                "password": "123456"
+            }
+        ]
+    },
+    "tokenLife": 30000,
+    "refreshTokenLife": 40000,
+    "messages": {
+        "mqttUrl_local": "mqtt://localhost",
+        "mqttUrl_lanparty": "mqtt://192.168.0.228",
+        "mqttUrl": "mqtt://localhost",
+        "socketIoPort": 8090,
+        "topicsToGui": [
+            "devices/state",
+            "groups/state",
+            "services/guibackend/heartbeat/pong",
+            "services/application/heartbeat/pong",
+            "services/mailer/heartbeat/pong"
+        ],
+        "topicsToBackend": [
+            "device/damper/mode/change",
+            "devices/repair/request",
+            "devices/state/request",
+            "groups/state/request",
+            "services/guibackend/heartbeat/ping",
+            "services/application/config/changed",
+            "services/application/heartbeat/ping",
+            "services/application/maintenance/request",
+            "services/mailer/config/changed",
+            "services/mailer/heartbeat/ping",
+            "system/time/set"
+        ],
+        "statusRequest": {
+            "topic": "devices/status/request",
+            "timeout": 2000
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "database": {
+        "path": "/etc/fdc/fdc.sqlite3"
+    },
+    "data": {
+        "path": "/etc/fdc/"
+    },
+    "messages": {
+        "mqttUrl": "mqtt://localhost"
+    }
+}
