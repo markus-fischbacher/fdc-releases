@@ -1,9 +1,0 @@
-[Match]
-Name=br0
-
-[Network]
-Address={{address}}
-Gateway={{gateway}}
-DNS={{dns1}}
-DNS={{dns2}}
-DHCP=yes
