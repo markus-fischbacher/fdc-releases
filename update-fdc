@@ -1,2 +1,7 @@
+echo "Pulling software"
 git pull
-systemctl restart fdc-*
+echo "Restarting services"
+systemctl restart fdc-application
+systemctl restart fdc-mailer
+systemctl restart fdc-webpage-backend
+echo "Update done"
