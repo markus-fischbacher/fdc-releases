@@ -4,7 +4,7 @@
     "GROUPS": "Gruppen/FDAs",
     "SYSTEM": "System",
     "LOGIN": "Anmelden",
-    "LOGOUT": "Abmelden",
+    "LOGOUT": "{{username}} abmelden",
     "RELOADCONFIG": "Änderungen übernehmen"
   },
   "SYSHEALTH": {
@@ -93,6 +93,13 @@
       "UPLOAD": "Upload configuration",
       "CONFIRMUPLOADTITLE": "Hochladen der Konfiguration Bestätigen",
       "CONFIRMUPLOADMESSAGE": "Wollen Sie wirklich die bestehende Konfiguration durch das gewählte File ersetzen?"
+    },
+    "USER": {
+      "TITLE": "Benutzer",
+      "USERNAME": "Benutzername",
+      "ROLE": "Rolle",
+      "DELETE": "Löschen",
+      "CHANGEPASSWORD": "Passwort ändern"
     }
   },
   "MAILCONF": {
@@ -225,6 +232,11 @@
       "GROUPS": "Gruppen",
       "FDAS": "FDAs"
     },
+    "GROUPS": {
+      "ALARMINPUTS": "BMA Alarmeingänge (ODER)",
+      "VENTINPUTS": "Anforderungen Lüftung (UND)",
+      "VENTOUTPUTS": "Abschaltungen Lüftung"
+    },
     "FDAS": {
       "CONFIGURE": "Konfigurieren",
       "NOTCONNECTED": "NICHT VERBUNDEN",
@@ -249,9 +261,29 @@
     "FDA": "FDA"
   },
   "USER": {
+    "USERNAME": "Benutzername",
+    "CREATE": "Benutzer erstellen",
     "LOGIN": "Anmelden",
     "LOGINFAILED": "Anmeldung fehlgeschlagen",
-    "PASSWORD": "Passwort"
+    "PASSWORD": "Passwort",
+    "SIGNEDINUSER": "Angemeldeter Benutzer",
+    "ROLE": "Rolle",
+    "ROLES": {
+      "ADMIN": "Administrator",
+      "SERVICE": "Servicetechniker",
+      "USER": "Benutzer"
+    },
+    "CHANGEPASSWORD": {
+      "TITLE": "Passwort ändern",
+      "NEWPASSWORD": "Neues Passwort",
+      "REPEATPASSWORD": "Passwort wiederholen",
+      "MINLENGTH": "Mindestens 8 Zeichen",
+      "UPPERCASE": "Mindestens ein Großbuchstabe",
+      "LOWERCASE": "Mindestens ein Kleinbuchstabe",
+      "NUMBER": "Mindestens eine Nummer",
+      "SPECIAL": "Mindestens ein Sonderzeichen"
+    },
+    "FORCEDPASSWORDCHANGE": "Passwort bitte ändern"
   },
   "OK": "Ok",
   "CANCEL": "Abbrechen",

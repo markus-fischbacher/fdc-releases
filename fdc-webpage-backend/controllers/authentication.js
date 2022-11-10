@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require ('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const db = require('../database/database');
 const authService = require('../services/auth-service');
 const tokenChecker = require('../middleware/tokenchecker');
@@ -23,6 +23,7 @@ router.post('/login', (req,res) => {
         const user = {
             "username": postData.username,
             "role": userFromDb.role,
+            "forcePasswordChange": userFromDb.password_changed !== 1,
             "serverSessionId": authService.randomSessionId
         };
         const token = jwt.sign(user, configService.getConfigValue(['secret']), { expiresIn: configService.getConfigValue(['tokenLife'])});
@@ -64,6 +65,7 @@ router.post('/refreshtoken', (req,res) => {
                 const user = {
                     "username": userFromDb.username,
                     "role": userFromDb.role,
+                    "forcePasswordChange": userFromDb.password_changed !== 1,
                     "serverSessionId": authService.randomSessionId
                 };
                 const token = jwt.sign(user, configService.getConfigValue(['secret']), { expiresIn: configService.getConfigValue(['tokenLife'])});
@@ -83,47 +85,126 @@ router.post('/refreshtoken', (req,res) => {
     }
 });
 
-router.put('/change-password', (req, res, next) => {
-    let postData = req.body;
+router.use(tokenChecker);
+
+router.get('/all-users', (req, res, next) => {
     try {
-        let pwCheckResult = validateNewPassword(postData.newPassword);
-        if (!pwCheckResult.error) {
-            const userFromDb = db.getUser(postData.username);
-            if (!userFromDb || !bcrypt.compareSync(postData.password, userFromDb.password)) {
-                res.status(403).send({
-                    "error": true,
-                    "message": 'Wrong username or password'
-                });
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
+        jwt.verify(token, configService.getConfigValue(['secret']), (error, decoded) => {
+            if (error) {
+                error.statusCode = 500;
+                next(error);
             } else {
-                db.updatePassword(postData.username, postData.newPassword)
-                res.status(200).json({'message': 'Password changed'});
+                if (decoded.role === 'ADMIN') {
+                    const userInfos = db.getUsernames();
+                    res.status(200).json(userInfos);
+                } else {
+                    const userInfos = db.getOwnUsername(decoded.username);
+                    res.status(200).json(userInfos);
+                }
             }
-        } else {
-            res.status(500).send(pwCheckResult);
-        }
-    } catch (err) {
+        });
+    } catch(err) {
         err.statusCode = 500;
         next(err);
     }
 });
 
-router.use(tokenChecker);
+router.put('/change-password', (req, res, next) => {
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
+    jwt.verify(token, configService.getConfigValue(['secret']), (err, decoded) => {
+        let postData = req.body;
+        try {
+            let pwCheckResult = validateNewPassword(postData.password);
+            if (!pwCheckResult.error) {
+                if (decoded.role !== 'ADMIN' && decoded.username !== postData.username) {
+                    throw 'No permission to change foreign password!';
+                }
+                const userFromDb = db.getUser(postData.username);
+                if (!userFromDb) {
+                    res.status(403).send({
+                        "error": true,
+                        "message": 'User not found'
+                    });
+                } else {
+                    db.updatePassword(postData.username, postData.password)
+                    res.status(200).json({'message': 'Password changed'});
+                }
+            } else {
+                res.status(500).send(pwCheckResult);
+            }
+        } catch (err) {
+            err.statusCode = 500;
+            next(err);
+        }
+    });
+});
+
+router.post('/create-user', (req, res, next) => {
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
+    jwt.verify(token, configService.getConfigValue(['secret']), (err, decoded) => {
+        if (decoded.role === 'ADMIN') {
+            let postData = req.body;
+            try {
+                db.insertUser(postData);
+                res.status(200).json({message: 'created user ' + postData.username});
+            } catch(err) {
+                err.statusCode = 500;
+                next(err);
+            }
+        } else {
+            next({statusCode: 500, message: 'No permission to add users!', error: true});
+        }
+    });
+});
+
+router.delete('/delete-user', (req, res, next) => {
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
+    jwt.verify(token, configService.getConfigValue(['secret']), (err, decoded) => {
+        if (err) {
+            err.statusCode = 500;
+            next(err);
+        } else {
+            const username = req.query.username;
+            if (decoded.role === 'ADMIN' && decoded.username !== username) {
+                try {
+                    db.deleteUser(username);
+                    res.status(200).json({message: 'user ' + username + ' created'});
+                } catch(err) {
+                    err.statusCode = 500;
+                    next(err);
+                }
+            } else {
+                next({statusCode: 500, message: 'No permission to delete users!', error: true});
+            }
+        }
+    });
+});
 
 router.get('/ping', (req, res, next) => {
     res.status(200).json({ping: new Date().getTime()});
 });
 
 function validateNewPassword(pass) {
+    const containsUppercaseLetter = /[A-Z]/.test(pass);
+    const containsLowercaseLetter = /[a-z]/.test(pass);
+    const containsNumber = /[0-9]/.test(pass);
+    const containsSpecialChar = /[^A-Za-z0-9\s]/.test(pass);
+    const minLength = pass.length >= 8;
+
     let result = {
         message: ''
     };
-    if (pass.length < configService.getConfigValue(['user', 'minPasswordLength'])) {
-        result.message = `Min password length: ${configService.getConfigValue(['user', 'minPasswordLength'])}\n`;
+
+    const isMatch = containsUppercaseLetter &&
+        containsLowercaseLetter &&
+        containsNumber &&
+        containsSpecialChar &&
+        minLength;
+    if (!isMatch) {
+        result.error = true;
+        result.message = 'Password does not match password rules.';
     }
-    if (!new RegExp(/\w+/, 'i').test(pass)) {
-        result.message += 'At least one non-whitespace char required\n';
-    }
-    result.error = result.message.length !== 0;
 
     return result;
 }

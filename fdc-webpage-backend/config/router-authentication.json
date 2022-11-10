@@ -12,9 +12,16 @@
         { "url": "/config/mailtemplates/.*", "method": ["GET"] },
         { "url": "/config/fdas/.*", "method": ["GET"] }
     ],
-    "USER": [
-    ],
     "ADMIN": [
         { "url": ".*?", "method": [".*?"] }
+    ],
+    "SERVICE": [
+        { "url": "/auth/all-users", "method": ["GET"] },
+        { "url": "/config/fdas/", "method": ["GET"] },
+        { "url": "/config/fdc/time", "method": ["GET"] },
+        { "url": "/config/fdc/maintenance", "method": ["GET", "POST"]},
+        { "url": "/config/fdas/changemode", "method": ["POST"]}
+    ],
+    "USER": [
     ]
 }

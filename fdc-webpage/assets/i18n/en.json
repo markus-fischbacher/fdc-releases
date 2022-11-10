@@ -4,7 +4,7 @@
     "GROUPS": "Groups/FDAs",
     "SYSTEM": "System",
     "LOGIN": "Login",
-    "LOGOUT": "Logout",
+    "LOGOUT": "Logout {{username}}",
     "RELOADCONFIG": "Apply changes"
   },
   "SYSHEALTH": {
@@ -93,6 +93,13 @@
       "UPLOAD": "Upload configuration",
       "CONFIRMUPLOADTITLE": "Confirm configuration upload",
       "CONFIRMUPLOADMESSAGE": "Do you really want to replace the configuration by the uploaded file?"
+    },
+    "USER": {
+      "TITLE": "User",
+      "USERNAME": "Username",
+      "ROLE": "Role",
+      "DELETE": "Delete",
+      "CHANGEPASSWORD": "Change password"
     }
   },
   "MAILCONF": {
@@ -225,6 +232,11 @@
       "GROUPS": "Damper groups",
       "FDAS": "FDAs"
     },
+    "GROUPS": {
+      "ALARMINPUTS": "BMA-Alarm inputs (OR)",
+      "VENTINPUTS": "Request ventilation inputs (AND)",
+      "VENTOUTPUTS": "Switch off ventilation outputs"
+    },
     "FDAS": {
       "CONFIGURE": "Configure",
       "NOTCONNECTED": "NOT CONNECTED",
@@ -249,9 +261,29 @@
     "FDA": "FDA"
   },
   "USER": {
+    "USERNAME": "Username",
+    "CREATE": "New user",
     "LOGIN": "Login",
     "LOGINFAILED": "Login failed",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "SIGNEDINUSER": "Signed in user",
+    "ROLE": "Role",
+    "ROLES": {
+      "ADMIN": "Admin",
+      "SERVICE": "Service",
+      "USER": "User"
+    },
+    "CHANGEPASSWORD": {
+      "TITLE": "Change password",
+      "NEWPASSWORD": "New password",
+      "REPEATPASSWORD": "Repeat password",
+      "MINLENGTH": "At least 8 characters",
+      "UPPERCASE": "At least one uppercase letter",
+      "LOWERCASE": "At least one lowercase letter",
+      "NUMBER": "At least one number",
+      "SPECIAL": "At least one special character"
+    },
+    "FORCEDPASSWORDCHANGE": "Please change your password"
   },
   "OK": "Ok",
   "CANCEL": "Cancel",

@@ -23,6 +23,14 @@ function getUser(username) {
     return user;
 }
 
+function getUsernames() {
+    return db.prepare("SELECT username, role FROM user;").all();
+}
+
+function getOwnUsername(username) {
+    return db.prepare("Select username, role FROM user where username = ?").all(username);
+}
+
 function updatePassword(username, password) {
     db.prepare('update user set password = ?, password_changed = 1 where username =?').run(
         bcrypt.hashSync(password, configService.getConfigValue(['user', 'passwordSaltCycles'])), username
@@ -35,24 +43,49 @@ function createUserTable() {
 }
 
 function insertDefaultUsers() {
-    const stmt = db.prepare('INSERT INTO user VALUES (?, ?, ?, ?)');
     configService.getConfigValue(['user', 'default']).forEach(defaultUser => {
         const user = getUser(defaultUser.username);
         if (!user) {
-            log.warning('Creating default user...');
-            stmt.run(
-                defaultUser.username,
-                bcrypt.hashSync(defaultUser.password, configService.getConfigValue(['user', 'passwordSaltCycles'])),
-                defaultUser.role,
-                0
-            );
-            log.info({"username": defaultUser.username, "role": defaultUser.role});
+            try {
+                log.warning('Creating default user ' + defaultUser.username);
+                insertUser(defaultUser);
+            } catch (err) {
+                log.err(err);
+            }
         }
     });
 }
 
+function insertUser(userData) {
+    const user = getUser(userData.username);
+    if (!user) {
+        db.prepare('INSERT INTO user VALUES (?, ?, ?, ?)').run(
+            userData.username,
+            bcrypt.hashSync(userData.password, configService.getConfigValue(['user', 'passwordSaltCycles'])),
+            userData.role,
+            0
+        );
+        log.info('Created user');
+        log.info(JSON.stringify({"username": userData.username, "role": userData.role}, null, 2));
+    } else {
+        throw 'user ' + userData.username + ' already exists';
+    }
+}
+
+function deleteUser(username) {
+    if (username) {
+        db.prepare('DELETE FROM user where username = ?').run(username);
+    } else {
+        throw 'No username given to delete!';
+    }
+}
+
 module.exports = {
-    initDatabase,
+    deleteUser,
     getUser,
+    getUsernames,
+    getOwnUsername,
+    initDatabase,
+    insertUser,
     updatePassword
 };

@@ -4,6 +4,7 @@ const authService = require('../services/auth-service');
 const routerAuths = require('../config/router-authentication.json');
 const util = require('util');
 const error = { 'error': true, 'message': 'Unauthorized access.' };
+const log = require('../services/log-service');
 
 const configService = require('../services/config-service');
 
@@ -42,7 +43,7 @@ module.exports = (req, res, next) => {
           // No valid route for users role found - abort
           return res.status(403).send(error);
         }
-        if (configService.getConfigValue(['user', 'requirePasswordChange']) && !user.password_changed) {
+        if (configService.getConfigValue(['user', 'requirePasswordChange']) && !user.password_changed && req.originalUrl !== 'change-password') {
           // User needs to change password before - abort
           return res.status(401).send({ 'error': true, 'message': 'Password change needed' });
         }

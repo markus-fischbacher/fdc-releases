@@ -16,7 +16,6 @@
     "user": {
         "requirePasswordChange": false,
         "passwordSaltCycles": 10,
-        "minPasswordLength": 5,
         "default": [
             {
                 "username": "admin",
