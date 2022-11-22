@@ -42,7 +42,7 @@ router.post('/changemode', (req, res, next) => {
 			fi.getFileData(configService.getConfigValue(['data', 'path']) + fileName, 
 				(fileData) => {
 					const conf = JSON.parse(fileData);
-					const fda = conf.find(fda => fda.physicalAddress = req.body.physicalId);
+					const fda = conf.find(fda => fda.physicalAddress == req.body.physicalId);
 					let isDamper1 = true;
 					if (fda.damper1.id === req.body.damperId) {
 						fda.damper1.damperMode = req.body.mode;

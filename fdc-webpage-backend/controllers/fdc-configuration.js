@@ -21,16 +21,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 	if (isValid(req.body).success) {
-		const ifIsAdmin = () => {
-			baseController.postBase(req, res, next, fileName);
-		};
-		const ifNoPermission = () => {
-			res.status(403).send({
-				'error': true,
-				'message': 'No permission'
-			});
-		};
-		authService.ifHasRole(['ADMIN'], req, res, next, ifIsAdmin, ifNoPermission);
+		baseController.postBase(req, res, next, fileName);
 	} else {
 		res.status(500).send({
 			'error': true,

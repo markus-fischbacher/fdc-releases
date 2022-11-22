@@ -37,6 +37,12 @@
       "UNKNOWN": "Busmodus unbekannt",
       "RING": "Ring",
       "LINE": "Linie"
+    },
+    "GROUPS": {
+      "ALARM": "Gruppe{{plural}} im Alarmstatus",
+      "TIMEOUT": "Gruppe{{plural}} im Timeoutstatus",
+      "MISSCONFIGURATION": "Konfigurationsfehler in Gruppe{{plural}}",
+      "PLURAL": "n"
     }
   },
   "MAINTENANCEMODE": {
@@ -150,7 +156,7 @@
       "EDIT": "Gruppe editieren",
       "ALARMINPUT": "BMA Alarmeingang",
       "VENTINPUT": "Anforderung Lüftung",
-      "VENTOUTPUT": "Abschaltung Lüftung",
+      "VENTOUTPUT": "Freigabe Lüftung",
       "MAIL": {
         "ALARM": "E-Mail Vorlage - Alarm",
         "ERROR": "E-Mail Vorlage - Fehler",
@@ -235,7 +241,7 @@
     "GROUPS": {
       "ALARMINPUTS": "BMA Alarmeingänge (ODER)",
       "VENTINPUTS": "Anforderungen Lüftung (UND)",
-      "VENTOUTPUTS": "Abschaltungen Lüftung"
+      "VENTOUTPUTS": "Freigaben Lüftung"
     },
     "FDAS": {
       "CONFIGURE": "Konfigurieren",

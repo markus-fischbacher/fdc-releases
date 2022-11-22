@@ -37,6 +37,12 @@
       "UNKNOWN": "Bus mode unknown",
       "RING": "Ring",
       "LINE": "Line"
+    },
+    "GROUPS": {
+      "ALARM": "Group{{plural}} in Alarm state",
+      "TIMEOUT": "Group{{plural}} in Timeout state",
+      "MISSCONFIGURATION": "Group{{plural}} misconfigured",
+      "PLURAL": "s"
     }
   },
   "MAINTENANCEMODE": {
@@ -133,8 +139,8 @@
     "INVERTED": "Inverted",
     "DISABLED": "Disabled",
     "STATUS": "Status",
-    "HIGH": "High",
-    "LOW": "Low"
+    "HIGH": "On",
+    "LOW": "Off"
   },
   "MAILTEMPLATES": {
     "TITLE": "Mail templates",
@@ -149,8 +155,8 @@
       "NEW": "New group",
       "EDIT": "Edit group",
       "ALARMINPUT": "BMA alarm (input)",
-      "VENTINPUT": "Request ventilation",
-      "VENTOUTPUT": "Switch off ventilation",
+      "VENTINPUT": "Ventilation request",
+      "VENTOUTPUT": "Ventilation allowed",
       "MAIL": {
         "ALARM": "Mail template - Alarm",
         "ERROR": "Mail template - Error",
@@ -234,8 +240,8 @@
     },
     "GROUPS": {
       "ALARMINPUTS": "BMA-Alarm inputs (OR)",
-      "VENTINPUTS": "Request ventilation inputs (AND)",
-      "VENTOUTPUTS": "Switch off ventilation outputs"
+      "VENTINPUTS": "Ventilation request inputs (AND)",
+      "VENTOUTPUTS": "Ventilation allowed outputs"
     },
     "FDAS": {
       "CONFIGURE": "Configure",
