@@ -1,6 +1,7 @@
 cwd=$(pwd)
 cd /opt/fdc
 echo "Pulling software"
+git reset --hard
 git pull
 git gc --aggressive --prune
 echo "Restarting services"
