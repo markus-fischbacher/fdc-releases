@@ -18,9 +18,20 @@ function ifHasRole(roles, req, res, next, successCallback, errorCallback) {
     });
 }
 
+function verifyToken(token, successCallback, errorCallback) {
+    jwt.verify(token, configService.getConfigValue(['secret']), (err, decoded) => {
+        if (err) {
+            errorCallback(err);
+        } else {
+            successCallback(decoded);
+        }
+    });
+}
+
 module.exports = {
     tokenList: tokenList,
     needsPasswordChangeList,
     randomSessionId: randomSessionId,
-    ifHasRole
+    ifHasRole,
+    verifyToken
 };

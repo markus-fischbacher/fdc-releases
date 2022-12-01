@@ -39,6 +39,7 @@
       "LINE": "Line"
     },
     "GROUPS": {
+      "WITHOUTBMAINPUT": "At least one group without BMA input found",
       "ALARM": "Group{{plural}} in Alarm state",
       "TIMEOUT": "Group{{plural}} in Timeout state",
       "MISSCONFIGURATION": "Group{{plural}} misconfigured",
@@ -97,6 +98,7 @@
       "TITLE": "Configuration download/upload",
       "DOWNLOAD": "Download Configuration",
       "UPLOAD": "Upload configuration",
+      "UPLOADDROPZONETEXT": "Drop file here, or click to open file dialog!",
       "CONFIRMUPLOADTITLE": "Confirm configuration upload",
       "CONFIRMUPLOADMESSAGE": "Do you really want to replace the configuration by the uploaded file?"
     },
@@ -147,7 +149,12 @@
     "NEW": "Configure mail template",
     "SUBJECT": "Subject",
     "BODY": "Body",
-    "RECIPIENTS": "Recipients"
+    "RECIPIENTS": "Recipients",
+    "TYPE": {
+      "ALARM": "Alarm",
+      "TIMEOUT": "Timeout",
+      "BUSFAILURE": "Bus failure"
+    }
   },
   "FDACONFIG": {
     "GROUPS": {
@@ -157,6 +164,9 @@
       "ALARMINPUT": "BMA alarm (input)",
       "VENTINPUT": "Ventilation request",
       "VENTOUTPUT": "Ventilation allowed",
+      "SELECTBMAPLACEHOLDER": "Select BMA input",
+      "SELECTVENTREQUESTPLACEHOLDER": "No ventilation request input",
+      "SELECTVENTALLOWEDPLACEHOLDER": "No ventilation allowed output",
       "MAIL": {
         "ALARM": "Mail template - Alarm",
         "ERROR": "Mail template - Error",
@@ -241,7 +251,10 @@
     "GROUPS": {
       "ALARMINPUTS": "BMA-Alarm inputs (OR)",
       "VENTINPUTS": "Ventilation request inputs (AND)",
-      "VENTOUTPUTS": "Ventilation allowed outputs"
+      "VENTOUTPUTS": "Ventilation allowed outputs",
+      "MISSINGBMAINPUT": "Missing BMA input!",
+      "NOVENTILATIONREQUESTINPUT": "No ventilation request input configured",
+      "NOVENTILATIONALLOWEDOUTPUT": "No ventilation allowed output"
     },
     "FDAS": {
       "CONFIGURE": "Configure",
@@ -259,6 +272,10 @@
       "B1": "B1",
       "B2": "B2",
       "FDACOUNT": "FDA count"
+    },
+    "OUTPUTS": {
+      "SWITCHTOLOW": "Switch OFF",
+      "SWITCHTOHIGH": "Switch ON"
     },
     "NOACTIVEDAMPERSINGROUP": "No active dampers in this group!"
   },

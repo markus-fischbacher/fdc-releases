@@ -3,6 +3,7 @@ const mqtt = require('mqtt');
 const server = require('http').createServer(express);
 const log = require('../services/log-service');
 const configService = require('../services/config-service');
+const authService = require('../services/auth-service');
 
 
 const socketIoPort = configService.getConfigValue(['messages', 'socketIoPort']) || 8090;
@@ -32,11 +33,38 @@ mqttClient.on("connect", () => {
 // SocketIo connection
 io.on('connection', (client) => {
     client.onAny((topic, message) => {
-        if (configService.getConfigValue(['messages', 'topicsToBackend']).includes(topic)) {
-            let messageToSend = message ? JSON.stringify(message) : JSON.stringify({data: 'no data'});
-            mqttClient.publish(topic, messageToSend,{qos: 1, retain: false});
-        } else {
-            log.error('MQTT-topic not in gui=>backend config: ' + topic);
+        try {
+            if (!message) {
+                throw `No message for topic ${topic} provided - abort websocket event receiver.`;
+            }
+            let token = message.authToken;
+            let payload = message.payload;
+            let topicConfig = configService.getConfigValue(['messages', 'topicsToBackend'])
+                .find(conf => conf.topic === topic);
+
+            if (!topicConfig) {
+                log.error('MQTT-topic not in gui=>backend config: ' + topic);
+                return;
+            }
+
+            if (topicConfig.roles.includes('ANONYMOUS')) {
+                mqttClient.publish(topic, JSON.stringify(payload),{qos: 1, retain: false});
+            } else {
+                let tokenSuccessCallback = (decodedToken) => {
+                    if (!topicConfig.roles.includes(decodedToken.role)) {
+                        log.error(`NO permission for topic '${topic}' for user '${decodedToken.username}' with role '${decodedToken.role}`);
+                        return;
+                    }
+                    mqttClient.publish(topic, JSON.stringify(payload),{qos: 1, retain: false});
+                };
+                let tokenErrorCallback = (err) => {
+                    log.error('Token from Socket.IO event not valid');
+                    log.error(err);
+                };
+                authService.verifyToken(token, tokenSuccessCallback, tokenErrorCallback);
+            }
+        } catch (exception) {
+            log.error(exception);
         }
     });
 });
