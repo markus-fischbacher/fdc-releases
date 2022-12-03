@@ -2,7 +2,7 @@ cwd=$(pwd)
 cd /opt/fdc
 echo "Pulling software"
 git reset --hard
-git pull
+git pull -v
 git gc --aggressive --prune
 echo "Restarting services"
 systemctl restart fdc-application
