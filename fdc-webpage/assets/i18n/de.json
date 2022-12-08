@@ -124,7 +124,8 @@
       "PASSWORD": "Passwort",
       "SENDERMAIL": "Sender Adresse",
       "SENDERNAME": "Sender Name"
-    }
+    },
+    "GLOBALRECIPIENTS": "Global recipients"
   },
   "INPUTS": {
     "TITLE": "Eingänge",
