@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "express-list-endpoints": "^6.0.0",
+    "ip": "^1.1.8",
     "jsonwebtoken": "^8.5.1",
     "mqtt": "^4.3.7",
     "os-utils": "0.0.14",

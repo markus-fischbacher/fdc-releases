@@ -6,11 +6,17 @@ const fi = require('../services/file-service');
 const log = require('../services/log-service');
 const configService = require('../services/config-service');
 const authService = require('../services/auth-service');
+const IP = require('ip');
 
 const fileName = 'fdc.json';
 
-router.get('/time', (req, res, next) => {
-	res.send(JSON.stringify({milliseconds: new Date().getTime()}));
+router.get('/info', (req, res, next) => {
+	const info = {
+		milliseconds: new Date().getTime(),
+		ip: IP.address(),
+		guiBackendVersion: "1.0 Beta"
+	};
+	res.send(JSON.stringify(info));
 });
 
 router.use(tokenChecker);

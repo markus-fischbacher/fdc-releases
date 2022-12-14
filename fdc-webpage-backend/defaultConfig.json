@@ -42,9 +42,12 @@
         "topicsToGui": [
             "devices/state",
             "groups/state",
+            "mailer/send/result",
             "services/guibackend/heartbeat/pong",
             "services/application/heartbeat/pong",
-            "services/mailer/heartbeat/pong"
+            "services/application/version",
+            "services/mailer/heartbeat/pong",
+            "services/mailer/version"
         ],
         "topicsToBackend": [
             {"topic": "device/damper/mode/change", "roles": ["ADMIN", "SERVICE"]},
@@ -52,12 +55,16 @@
             {"topic": "devices/repair/request", "roles": ["ADMIN", "SERVICE"]},
             {"topic": "devices/state/request", "roles": ["ANONYMOUS"]},
             {"topic": "groups/state/request", "roles": ["ANONYMOUS"]},
+            {"topic": "gui/refresh", "roles": ["ANONYMOUS"]},
+            {"topic": "mailer/send/test", "roles": ["ADMIN"]},
             {"topic": "services/guibackend/heartbeat/ping", "roles": ["ANONYMOUS"]},
             {"topic": "services/application/config/changed", "roles": ["ADMIN"]},
             {"topic": "services/application/heartbeat/ping", "roles": ["ANONYMOUS"]},
+            {"topic": "services/application/version/request", "roles": ["ANONYMOUS"]},
             {"topic": "services/application/maintenance/request", "roles": ["ADMIN", "SERVICE"]},
             {"topic": "services/mailer/config/changed", "roles": ["ADMIN"]},
             {"topic": "services/mailer/heartbeat/ping", "roles": ["ANONYMOUS"]},
+            {"topic": "services/mailer/version/request", "roles": ["ANONYMOUS"]},
             {"topic": "system/time/set", "roles": ["ADMIN"]}
         ],
         "statusRequest": {

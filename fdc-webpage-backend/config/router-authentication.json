@@ -1,8 +1,9 @@
 {
     "ANONYMOUS": [
+        { "url": "/config/fdc/info", "method": ["GET"] },
+        { "url": "/health", "method": ["GET"] },
         { "url": "/login", "method": ["POST"] },
         { "url": "/refreshtoken", "method": ["POST"] },
-        { "url": "/health", "method": ["GET"] },
         { "url": "/version", "method": ["GET"] }
 
     ],
@@ -18,7 +19,6 @@
     "SERVICE": [
         { "url": "/auth/all-users", "method": ["GET"] },
         { "url": "/config/fdas/", "method": ["GET"] },
-        { "url": "/config/fdc/time", "method": ["GET"] },
         { "url": "/config/fdc/maintenance", "method": ["GET", "POST"]},
         { "url": "/config/fdas/changemode", "method": ["POST"]}
     ],

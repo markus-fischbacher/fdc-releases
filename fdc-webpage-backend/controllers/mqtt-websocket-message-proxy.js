@@ -43,19 +43,25 @@ io.on('connection', (client) => {
                 .find(conf => conf.topic === topic);
 
             if (!topicConfig) {
-                log.error('MQTT-topic not in gui=>backend config: ' + topic);
-                return;
+                throw `MQTT-topic not in gui=>backend config: ${topic}`;
             }
 
             if (topicConfig.roles.includes('ANONYMOUS')) {
-                mqttClient.publish(topic, JSON.stringify(payload),{qos: 1, retain: false});
+                if (topic.startsWith('gui/')) {
+                    setTimeout(() => io.emit(payload.topic, JSON.stringify(payload.message)));
+                } else {
+                    mqttClient.publish(topic, JSON.stringify(payload),{qos: 1, retain: false});
+                }
             } else {
                 let tokenSuccessCallback = (decodedToken) => {
                     if (!topicConfig.roles.includes(decodedToken.role)) {
-                        log.error(`NO permission for topic '${topic}' for user '${decodedToken.username}' with role '${decodedToken.role}`);
-                        return;
+                        throw `NO permission for topic '${topic}' for user '${decodedToken.username}' with role '${decodedToken.role}`;
                     }
-                    mqttClient.publish(topic, JSON.stringify(payload),{qos: 1, retain: false});
+                    if (topic.startsWith('gui/')) {
+                        setTimeout(() => io.emit(payload.topic, JSON.stringify(payload.message)));
+                    } else {
+                        mqttClient.publish(topic, JSON.stringify(payload),{qos: 1, retain: false});
+                    }
                 };
                 let tokenErrorCallback = (err) => {
                     log.error('Token from Socket.IO event not valid');

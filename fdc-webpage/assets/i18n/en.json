@@ -125,6 +125,15 @@
       "SENDERMAIL": "Sender address",
       "SENDERNAME": "Sender name"
     },
+    "TESTMAIL": {
+      "TITLE": "Send testmail",
+      "RECEIVER": "Receiver",
+      "SEND": "Send",
+      "ERROR": "Error sending mail!",
+      "SUCCESS": "Success",
+      "WAITING": "Mail sent - waiting for response ...",
+      "NOTSENTYET": "No mail sent yet"
+    },
     "GLOBALRECIPIENTS": "Global recipients"
   },
   "INPUTS": {
@@ -308,6 +317,12 @@
       "SPECIAL": "At least one special character"
     },
     "FORCEDPASSWORDCHANGE": "Please change your password"
+  },
+  "VERSION": {
+    "GUI": "GUI",
+    "GUIBACKEND": "GUI backend",
+    "FDCAPPLICATION": "Application",
+    "FDCMAILER": "Mailer"
   },
   "OK": "Ok",
   "CANCEL": "Cancel",
