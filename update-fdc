@@ -4,7 +4,7 @@ echo "Pulling software"
 git reset --hard
 git clean -fd
 git pull -v
-git gc --aggressive --prune
+# git gc --aggressive --prune
 echo "Restarting services"
 systemctl restart fdc-application
 systemctl restart fdc-mailer
