@@ -9,5 +9,6 @@ echo "Restarting services"
 systemctl restart fdc-application
 systemctl restart fdc-mailer
 systemctl restart fdc-webpage-backend
+systemctl restart fdc-bacnet
 echo "Update done"
 cd ${cwd}
