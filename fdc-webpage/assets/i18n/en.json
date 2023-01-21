@@ -16,6 +16,9 @@
     "TIMESTATUSUNKNOWN": "Time status unknown!",
     "MINUTES": "minutes",
     "ALLSERVICESRUNNING": "All services ok",
+    "BACNETSERVICERUNNING": "BACnet service running",
+    "BACNETSERVICESTOPPED": "BACnet service stopped, or no network connectivity!",
+    "BACNETSERVICESTATUSUNKNOWN": "BACnet service status unknown!",
     "GUIBACKENDSERVICERUNNING": "GUI backend service running",
     "GUIBACKENDSERVICESTOPPED": "GUI backend service stopped, or no network connectivity!",
     "GUIBACKENDSERVICESTATUSUNKNOWN": "GUI backend service status unknown!",
@@ -182,7 +185,8 @@
         "ERROR": "Mail template - Error",
         "TIMEOUT": "Mail template - Timeout"
       },
-      "DAMPERS": "Dampers in group"
+      "DAMPERS": "Dampers in group",
+      "NODAMPERSINGROUP": "No dampers found for group."
     },
     "FDAS": {
       "TITLE": "FDAs",
@@ -259,8 +263,8 @@
       "FDAS": "FDAs"
     },
     "GROUPS": {
-      "ALARMINPUTS": "BMA-Alarm inputs (OR)",
-      "VENTINPUTS": "Ventilation request inputs (AND)",
+      "ALARMINPUTS": "BMA-Alarm inputs",
+      "VENTINPUTS": "Ventilation request inputs",
       "VENTOUTPUTS": "Ventilation allowed outputs",
       "MISSINGBMAINPUT": "Missing BMA input!",
       "NOVENTILATIONREQUESTINPUT": "No ventilation request input configured",
@@ -281,7 +285,8 @@
       "ONBUSBRANCH": "On bus branch",
       "B1": "B1",
       "B2": "B2",
-      "FDACOUNT": "FDA count"
+      "FDACOUNT": "FDA count",
+      "VERSION": "Version"
     },
     "OUTPUTS": {
       "SWITCHTOLOW": "Switch OFF",
@@ -322,6 +327,7 @@
     "GUI": "GUI",
     "GUIBACKEND": "GUI backend",
     "FDCAPPLICATION": "Application",
+    "FDCBACNET": "BACnet",
     "FDCMAILER": "Mailer"
   },
   "OK": "Ok",
@@ -334,5 +340,6 @@
   "NAME": "Name",
   "DESCRIPTION": "Description",
   "PHYSICALADDRESS": "Physical Address",
-  "STATUS": "Status"
+  "STATUS": "Status",
+  "TYPE": "Type"
 }

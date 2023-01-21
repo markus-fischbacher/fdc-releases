@@ -17,6 +17,7 @@
         { "url": ".*?", "method": [".*?"] }
     ],
     "SERVICE": [
+        { "url": "/audit-log/.*?", "method": ["POST"] },
         { "url": "/auth/all-users", "method": ["GET"] },
         { "url": "/config/fdas/", "method": ["GET"] },
         { "url": "/config/fdc/maintenance", "method": ["GET", "POST"]},

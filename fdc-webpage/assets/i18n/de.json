@@ -16,6 +16,9 @@
     "TIMESTATUSUNKNOWN": "Zeitstatus unbekannt",
     "MINUTES": "Minuten",
     "ALLSERVICESRUNNING": "Alle Services ok",
+    "BACNETSERVICERUNNING": "BACnet Service läuft",
+    "BACNETSERVICESTOPPED": "BACnet Service läuft nicht",
+    "BACNETSERVICESTATUSUNKNOWN": "BACnet Service Status unbekannt!",
     "GUIBACKENDSERVICERUNNING": "GUI-Backend Service läuft",
     "GUIBACKENDSERVICESTOPPED": "GUI-Backend Service läuft nicht",
     "GUIBACKENDSERVICESTATUSUNKNOWN": "GUI-Backend Service Status unbekannt!",
@@ -182,7 +185,8 @@
         "ERROR": "E-Mail Vorlage - Fehler",
         "TIMEOUT": "E-Mail Vorlage - Timeout"
       },
-      "DAMPERS": "Klappen in Gruppe"
+      "DAMPERS": "Klappen in Gruppe",
+      "NODAMPERSINGROUP": "Keine Damper in Gruppe."
     },
     "FDAS": {
       "TITLE": "FDAs",
@@ -259,8 +263,8 @@
       "FDAS": "FDAs"
     },
     "GROUPS": {
-      "ALARMINPUTS": "BMA Alarmeingänge (ODER)",
-      "VENTINPUTS": "Anforderungen Lüftung (UND)",
+      "ALARMINPUTS": "BMA Alarmeingänge",
+      "VENTINPUTS": "Anforderungen Lüftung",
       "VENTOUTPUTS": "Freigaben Lüftung",
       "MISSINGBMAINPUT": "BMA-Eingang fehlt!",
       "NOVENTILATIONREQUESTINPUT": "Keine Lüftungsanforderung konfiguriert",
@@ -281,7 +285,8 @@
       "ONBUSBRANCH": "Verbunden mit Bus",
       "B1": "B1",
       "B2": "B2",
-      "FDACOUNT": "Anzahl FDAs"
+      "FDACOUNT": "Anzahl FDAs",
+      "VERSION": "Version"
     },
     "OUTPUTS": {
       "SWITCHTOLOW": "AUS-schalten",
@@ -322,6 +327,7 @@
     "GUI": "GUI",
     "GUIBACKEND": "GUI backend",
     "FDCAPPLICATION": "Application",
+    "FDCBACNET": "BACnet",
     "FDCMAILER": "Mailer"
   },
   "OK": "Ok",
@@ -334,5 +340,6 @@
   "NAME": "Name",
   "DESCRIPTION": "Beschreibung",
   "PHYSICALADDRESS": "Physikalische Adresse",
-  "STATUS": "Zustand"
+  "STATUS": "Zustand",
+  "TYPE": "Typ"
 }

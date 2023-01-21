@@ -9,6 +9,9 @@
     "database": {
         "path":"./database/fdc.sqlite3"
     },
+    "logger-database": {
+        "path": "/mnt/mmc/data-logger.db"
+    },
     "data": {
         "path": "./data/",
         "temp": "./temp/"
@@ -46,6 +49,8 @@
             "services/guibackend/heartbeat/pong",
             "services/application/heartbeat/pong",
             "services/application/version",
+            "services/bacnet/heartbeat/pong",
+            "services/bacnet/version",
             "services/mailer/heartbeat/pong",
             "services/mailer/version"
         ],
@@ -62,6 +67,8 @@
             {"topic": "services/application/heartbeat/ping", "roles": ["ANONYMOUS"]},
             {"topic": "services/application/version/request", "roles": ["ANONYMOUS"]},
             {"topic": "services/application/maintenance/request", "roles": ["ADMIN", "SERVICE"]},
+            {"topic": "services/bacnet/heartbeat/ping", "roles": ["ANONYMOUS"]},
+            {"topic": "services/bacnet/version/request", "roles": ["ANONYMOUS"]},
             {"topic": "services/mailer/config/changed", "roles": ["ADMIN"]},
             {"topic": "services/mailer/heartbeat/ping", "roles": ["ANONYMOUS"]},
             {"topic": "services/mailer/version/request", "roles": ["ANONYMOUS"]},
