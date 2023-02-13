@@ -4,6 +4,7 @@ echo "Pulling software"
 git reset --hard
 git clean -fd
 git pull -v
+chown -R admin:admin /opt
 # git gc --aggressive --prune
 echo "Restarting services"
 systemctl restart fdc-application
