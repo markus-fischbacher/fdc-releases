@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require('body-parser');
+const auditLog = require('./controllers/audit-log');
 const authentication = require('./controllers/authentication');
 const healthRouter = require('./controllers/health');
 const mailTemplateConfigurationRouter = require('./controllers/mailtemplate-configuration');
@@ -13,6 +14,7 @@ const db = require('./database/database');
 const configService = require('./services/config-service');
 const parameterService = require('./services/parameter-service');
 const log = require('./services/log-service');
+// Do not remove the require of the "unused" fdaMqtt ... else MQTT would not be activated
 const fdaMqtt = require('./controllers/mqtt-websocket-message-proxy');
 parameterService.init();
 log.info('Starting fdc-webpage-backend service ...');
@@ -27,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+app.use('/audit-log', auditLog);
 app.use('/auth', authentication);
 app.use('/health', healthRouter);
 app.use('/config/fdc', fdcConfigurationRouter);

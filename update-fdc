@@ -1,15 +1,12 @@
-cwd=$(pwd)
-cd /opt/fdc
-echo "Pulling software"
-git reset --hard
-git clean -fd
-git pull -v
-chown -R admin:admin /opt
-# git gc --aggressive --prune
-echo "Restarting services"
-systemctl restart fdc-application
-systemctl restart fdc-mailer
-systemctl restart fdc-webpage-backend
-systemctl restart fdc-bacnet
-echo "Update done"
-cd ${cwd}
+echo "Stopping services"          
+systemctl stop fdc-*                                                                                                                
+rm -rf /opt/fdc                                                                                                                     
+git clone --depth 1 https://atlassian-inno-info:ATBBdc6X7RYtEvHqtLWaphzECJBu7EAC690E@bitbucket.org/innofriends/fdc-releases.git /opt/fdc
+/bin/cp -rf /opt/fdc/fdc-mailer/lib* /lib/                                                                                          
+rm -rf /opt/fdc/.git    
+chown -R admin:admin /opt                                                                                                            
+echo "Starting services"                                                                                                            
+systemctl start fdc-application           
+systemctl start fdc-mailer  
+systemctl start fdc-webpage-backend
+systemctl start fdc-bacnet

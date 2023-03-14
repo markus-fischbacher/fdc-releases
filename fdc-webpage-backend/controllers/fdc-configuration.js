@@ -14,7 +14,7 @@ router.get('/info', (req, res, next) => {
 	const info = {
 		milliseconds: new Date().getTime(),
 		ip: IP.address(),
-		guiBackendVersion: "1.0 Beta"
+		guiBackendVersion: "1.1"
 	};
 	res.send(JSON.stringify(info));
 });

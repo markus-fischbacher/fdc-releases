@@ -1,5 +1,6 @@
 {
   "MENU": {
+    "AUDITLOG": "Auditlog",
     "DASHBOARD": "Dashboard",
     "GROUPS": "Groups/FDAs",
     "SYSTEM": "System",
@@ -255,6 +256,27 @@
     },
     "POSITION": "Position"
   },
+  "AUDITLOG": {
+    "FILTER": {
+      "TIMESTAMPFROM": "Timestamp - From",
+      "TIMESTAMPTO": "Timestamp - To"
+    },
+    "DAMPER": {
+      "TITLE": "Damper - Auditlog"
+    },
+    "HEADER": {
+      "TIMESTAMP": "Timestamp",
+      "PHYSADDR": "Phys-Addr.",
+      "DYNADDR": "Dyn-Addr.",
+      "NR": "Nr",
+      "NAME": "Name",
+      "MODE": "Mode",
+      "STATE": "State"
+    },
+    "GENERAL": {
+      "TITLE": "General - Auditlog"
+    }
+  },
   "DASHBOARD": {
     "TITLES": {
       "INPUTS": "Inputs",
@@ -322,6 +344,10 @@
       "SPECIAL": "At least one special character"
     },
     "FORCEDPASSWORDCHANGE": "Please change your password"
+  },
+  "PAGINATION": {
+    "PAGE": "Page",
+    "OF": "of"
   },
   "VERSION": {
     "GUI": "GUI",

@@ -1,5 +1,6 @@
 {
   "MENU": {
+    "AUDITLOG": "Auditlog",
     "DASHBOARD": "Dashboard",
     "GROUPS": "Gruppen/FDAs",
     "SYSTEM": "System",
@@ -255,6 +256,27 @@
     },
     "POSITION": "Position"
   },
+  "AUDITLOG": {
+    "FILTER": {
+      "TIMESTAMPFROM": "Zeitstempel - Von",
+      "TIMESTAMPTO": "Zeitstempel - Bis"
+    },
+    "DAMPER": {
+      "TITLE": "Klappen - Auditlog"
+    },
+    "HEADER": {
+      "TIMESTAMP": "Zeitstempel",
+      "PHYSADDR": "Phys-Adr.",
+      "DYNADDR": "Dyn-Adr.",
+      "NR": "Nr",
+      "NAME": "Name",
+      "MODE": "Modus",
+      "STATE": "Status"
+    },
+    "GENERAL": {
+      "TITLE": "Allgemein - Auditlog"
+    }
+  },
   "DASHBOARD": {
     "TITLES": {
       "INPUTS": "Eingänge",
@@ -322,6 +344,10 @@
       "SPECIAL": "Mindestens ein Sonderzeichen"
     },
     "FORCEDPASSWORDCHANGE": "Passwort bitte ändern"
+  },
+  "PAGINATION": {
+    "PAGE": "Seite",
+    "OF": "von"
   },
   "VERSION": {
     "GUI": "GUI",
