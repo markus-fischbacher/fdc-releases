@@ -280,6 +280,9 @@ terms above.
 ng-multiselect-dropdown
 MIT
 
+ng2-file-upload
+MIT
+
 ngx-dropzone
 MIT
 

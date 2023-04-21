@@ -32,6 +32,7 @@
     "LOADING": "Loading system status...",
     "OK": "System OK",
     "WARNING": "System warning!",
+    "TIMEOUT": "One or more groups in Timeout state",
     "FDAS": {
       "ONLINECONFIGURED": "FDA{{plural}} online",
       "OFFLINECONFIGURED": "FDA{{plural}} offline",
@@ -104,7 +105,8 @@
       "UPLOAD": "Upload configuration",
       "UPLOADDROPZONETEXT": "Drop file here, or click to open file dialog!",
       "CONFIRMUPLOADTITLE": "Confirm configuration upload",
-      "CONFIRMUPLOADMESSAGE": "Do you really want to replace the configuration by the uploaded file?"
+      "CONFIRMUPLOADMESSAGE": "Do you really want to replace the configuration by the uploaded file?",
+      "DOWNLOADAUDITLOGDATABASE": "Download Auditlog-DB"
     },
     "USER": {
       "TITLE": "User",
@@ -166,6 +168,7 @@
     "RECIPIENTS": "Recipients",
     "TYPE": {
       "ALARM": "Alarm",
+      "HEALTH_CHECK": "Health check",
       "TIMEOUT": "Timeout",
       "BUSFAILURE": "Bus failure"
     }
@@ -257,9 +260,15 @@
     "POSITION": "Position"
   },
   "AUDITLOG": {
+    "NODATA": "No data available",
+    "LOADING": "Loading data ...",
+    "DOWNLOADCSV": "Download CSV",
+    "RELOAD": "Reload",
     "FILTER": {
       "TIMESTAMPFROM": "Timestamp - From",
-      "TIMESTAMPTO": "Timestamp - To"
+      "TIMESTAMPTO": "Timestamp - To",
+      "APPLY": "Apply Filter",
+      "DELETE": "Delete Filter"
     },
     "DAMPER": {
       "TITLE": "Damper - Auditlog"
@@ -271,10 +280,28 @@
       "NR": "Nr",
       "NAME": "Name",
       "MODE": "Mode",
-      "STATE": "State"
+      "STATE": "State",
+      "DEVICETYPE": "Device",
+      "EVENTTYPE": "Event",
+      "EVENTDATA": "Data",
+      "INFO": "Info",
+      "USERNAME": "User"
     },
     "GENERAL": {
       "TITLE": "General - Auditlog"
+    },
+    "STATISTICS": {
+      "TITLE": "Statistiken",
+      "LOAD": "Load data",
+      "LOADING": "Loading data",
+      "ADDRESS": "Address",
+      "COUNTOPENINGS": "{{count}} openings",
+      "FIRSTOPENING": "First opening: ",
+      "FIRSTOPENINGTIME": "Duration first opening (s): ",
+      "LASTOPENING": "Last opening: ",
+      "LASTOPENINGTIME": "Duration last opening (s): ",
+      "TIMELOSS": "Timedifference in %: ",
+      "MODE": "Current mode"
     }
   },
   "DASHBOARD": {

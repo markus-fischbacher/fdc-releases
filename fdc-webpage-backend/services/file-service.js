@@ -4,6 +4,21 @@ const log = require('./log-service');
 const { exec } = require('child_process');
 const configService = require('../services/config-service');
 
+function downloadFile(filePath, response) {
+	log.info('try downloading filePath');
+	if (fs.existsSync(filePath)) {
+		let filePathParts = filePath.split('/');
+		response.writeHead(200, {
+			"Content-Type": "application/octet-stream",
+			"Content-Disposition": "attachment; filename=" + filePathParts[filePathParts.length - 1]
+		});
+		fs.createReadStream(filePath).pipe(response);
+		return;
+	}
+	response.writeHead(400, {'Content-Type': 'text/plain'});
+	response.end('ERROR: File does not exist');
+}
+
 function getFileData(filePath, callbackSuccess, callbackError) {
 	getFileDataInternal(filePath, callbackSuccess, () => {
 		log.warning('Try to read file again in 500ms');
@@ -52,15 +67,14 @@ function writeFile(fileName, data, callbackSuccess, callbackError) {
 function writeFileInternal(fileName, data, callbackSuccess, callbackError) {
 	const filePath = configService.getConfigValue(['data', 'path']) + fileName;
 	const tempPath = configService.getConfigValue(['data', 'temp']) + fileName;
-	;
 	try {
 		// write data to temp file
-		const fileWritePromise = fs.promises.writeFile(tempPath, JSON.stringify(data));
+		const fileWritePromise = fs.promises.writeFile(tempPath, JSON.stringify(data, null, 2));
 		fileWritePromise.then(
 			() => {
 				// check if data was written correctly
 				getFileDataInternal(tempPath, (dataAfterWriting) => {
-					if (dataAfterWriting.toString() === JSON.stringify(data)) {
+					if (dataAfterWriting.toString() === JSON.stringify(data, null, 2)) {
 						// move file to productive path
 						exec('mv ' + tempPath + ' ' + filePath , (err, output) => {
 							if (err) {
@@ -102,6 +116,7 @@ function writeFileInternal(fileName, data, callbackSuccess, callbackError) {
 }
 
 module.exports = {
+	downloadFile,
 	getFileData,
 	writeFile
 };

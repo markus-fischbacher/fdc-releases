@@ -2,6 +2,9 @@
     "database": {
         "path": "/etc/fdc/fdc.sqlite3"
     },
+    "auditlogdatabase": {
+        "path": "/mnt/mmc/data-logger.db"
+    },
     "data": {
         "path": "/etc/fdc/"
     },

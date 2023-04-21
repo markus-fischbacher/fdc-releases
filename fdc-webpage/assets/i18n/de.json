@@ -32,6 +32,7 @@
     "LOADING": "Status der Services wird geladen ...",
     "OK": "System OK",
     "WARNING": "System Warnung!",
+    "TIMEOUT": "Eine oder mehr Gruppen mit Timeout",
     "FDAS": {
       "ONLINECONFIGURED": "FDA{{plural}} verbunden",
       "OFFLINECONFIGURED": "FDA{{plural}} nicht verbunden",
@@ -104,7 +105,8 @@
       "UPLOAD": "Konfiguration hochladen",
       "UPLOADDROPZONETEXT": "Klick für Dateiauswahldialog, oder Konfigurationsdatei hier fallen lassen!",
       "CONFIRMUPLOADTITLE": "Hochladen der Konfiguration Bestätigen",
-      "CONFIRMUPLOADMESSAGE": "Wollen Sie wirklich die bestehende Konfiguration durch das gewählte File ersetzen?"
+      "CONFIRMUPLOADMESSAGE": "Wollen Sie wirklich die bestehende Konfiguration durch das gewählte File ersetzen?",
+      "DOWNLOADAUDITLOGDATABASE": "Auditlog-DB herunterladen"
     },
     "USER": {
       "TITLE": "Benutzer",
@@ -166,6 +168,7 @@
     "RECIPIENTS": "Empfänger",
     "TYPE": {
       "ALARM": "Alarm",
+      "HEALTH_CHECK": "Systemprüfung",
       "TIMEOUT": "Timeout",
       "BUSFAILURE": "Busfehler"
     }
@@ -257,9 +260,15 @@
     "POSITION": "Position"
   },
   "AUDITLOG": {
+    "NODATA": "Keine Daten verfügbar",
+    "LOADING": "Daten werden geladen ...",
+    "DOWNLOADCSV": "CSV Herunterladen",
+    "RELOAD": "Neu laden",
     "FILTER": {
       "TIMESTAMPFROM": "Zeitstempel - Von",
-      "TIMESTAMPTO": "Zeitstempel - Bis"
+      "TIMESTAMPTO": "Zeitstempel - Bis",
+      "APPLY": "Filter anwenden",
+      "DELETE": "Filter zurücksetzen"
     },
     "DAMPER": {
       "TITLE": "Klappen - Auditlog"
@@ -271,10 +280,28 @@
       "NR": "Nr",
       "NAME": "Name",
       "MODE": "Modus",
-      "STATE": "Status"
+      "STATE": "Status",
+      "DEVICETYPE": "Gerät",
+      "EVENTTYPE": "Ereignis",
+      "EVENTDATA": "Daten",
+      "INFO": "Info",
+      "USERNAME": "Benutzer"
     },
     "GENERAL": {
       "TITLE": "Allgemein - Auditlog"
+    },
+    "STATISTICS": {
+      "TITLE": "Statistikens",
+      "LOAD": "Daten laden",
+      "LOADING": "Daten werden geladen",
+      "ADDRESS": "Adresse",
+      "COUNTOPENINGS": "{{count}} Öffnungen",
+      "FIRSTOPENING": "Erste Öffnung: ",
+      "FIRSTOPENINGTIME": "Dauer erster Öffnung (s): ",
+      "LASTOPENING": "Letzte Öffnung: ",
+      "LASTOPENINGTIME": "Dauer letzter Öffnung (s): ",
+      "TIMELOSS": "Zeitunterschied in %: ",
+      "MODE": "Aktueller Modus"
     }
   },
   "DASHBOARD": {

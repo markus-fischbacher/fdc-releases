@@ -1,0 +1,65 @@
+{
+  "fdcConfig": {
+    "databasePath": "/mnt/mmc/",
+    "maintenanceEnd": 0,
+    "id": "f0ccb9af-2486-4170-8d69-112dcf089386",
+    "inputs": [],
+    "network": {
+      "useDhcp": 1,
+      "ipAddress": "192.168.170.136/24",
+      "gatewayAddress": "192.168.170.1",
+      "dns1": "8.8.8.8",
+      "dns2": "1.1.1.1",
+      "hostname": "fdc-controller"
+    },
+    "ntp": {
+      "server1": "0.pool.ntp.org",
+      "server2": "1.pool.ntp.org",
+      "timezone": "Europe/Vienna"
+    },
+    "outputs": [],
+    "physicalAddress": 10000,
+    "position": ""
+  },
+  "fdaConfig": [],
+  "groupConfig": [],
+  "mailerConfig": {
+    "devNullMode": 0,
+    "smtp": {
+      "type": "Secure",
+      "server": "",
+      "port": 587,
+      "user": "",
+      "password": "",
+      "senderMail": "",
+      "senderName": ""
+    },
+    "additionalRecipients": []
+  },
+  "mailtemplateConfig": [
+    {
+      "id": "c63c0cfc-1e74-4020-96e2-13009ed97f0f",
+      "name": "Timeout",
+      "recipients": [],
+      "subject": "Gruppe {{name}} ist in {% if currentTimeoutState %}TIMEOUT{% else %}RUHE{% endif %} Zustand",
+      "body": "Gruppe: {{name}}\nZustand: {% if currentTimeoutState %}TIMEOUT{% else %}RUHE{% endif %}\nBMA Eingang:\n{% for bma in bmaAlarm %}\n    Name: {{bma.name}}\n    Zustand: {{bma.currentState}}\n{% endfor %}\nLüftungsfreigabe:\n{% for vAll in ventilationRequest %}\n    Name: {{vAll.name}}\n    Zustand: {{vAll.currentState}}\n{% endfor %}\nLüftungssteuerung:\n{% for vAct in ventilationAllowed %}\n    Name: {{vAct.name}}\n    Zustand: {{vAct.currentState}}\n{% endfor %}\nKlappen der Gruppe:\n{% for unit in units %}\n    Name: {{unit.name}}\n    Adresse: {{unit.physicalAddress}}\n    Klappennummer: {{unit.number}}\n    Klappentyp: {{unit.damperType}}\n    Klappenmodus: {{unit.damperMode}}\n    Klappenzustand: {{unit.currentState}}\n    Position: {{unit.position}}\n{% endfor %}",
+      "type": "TIMEOUT"
+    },
+    {
+      "id": "20942171-3198-48b6-ac45-aefcd643ce80",
+      "name": "Alarm",
+      "recipients": [],
+      "subject": "Gruppe {{name}} ist in {% if currentAlarmState %}ALARM{% else %}RUHE{% endif %} Zustand",
+      "body": "Gruppe: {{name}}\nZustand: {% if currentAlarmState %}ALARM{% else %}RUHE{% endif %}\nBMA Eingang:\n{% for bma in bmaAlarm %}\n    Name: {{bma.name}}\n    Zustand: {{bma.currentState}}\n{% endfor %}\nLüftungsfreigabe:\n{% for vAll in ventilationRequest %}\n    Name: {{vAll.name}}\n    Zustand: {{vAll.currentState}}\n{% endfor %}\nLüftungssteuerung:\n{% for vAct in ventilationAllowed %}\n    Name: {{vAct.name}}\n    Zustand: {{vAct.currentState}}\n{% endfor %}\nKlappen der Gruppe:\n{% for unit in units %}\n    Name: {{unit.name}}\n    Adresse: {{unit.physicalAddress}}\n    Klappennummer: {{unit.number}}\n    Klappentyp: {{unit.damperType}}\n    Klappenmodus: {{unit.damperMode}}\n    Klappenzustand: {{unit.currentState}}\n    Position: {{unit.position}}\n{% endfor %}",
+      "type": "ALARM"
+    },
+    {
+      "id": "2e29c1e5-1330-f975-6dd3-783313dbead8",
+      "name": "Busfehler",
+      "recipients": [],
+      "subject": "Busfehler",
+      "body": "Busfehler",
+      "type": "BUSFAILURE"
+    }
+  ]
+}

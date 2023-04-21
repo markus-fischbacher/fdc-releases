@@ -9,6 +9,9 @@
     "database": {
         "path":"./database/fdc.sqlite3"
     },
+    "auditlogdatabase": {
+        "path": "/mnt/mmc/data-logger.db"
+    },
     "logger-database": {
         "path": "/mnt/mmc/data-logger.db"
     },

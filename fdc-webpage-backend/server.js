@@ -9,6 +9,7 @@ const groupConfigurationRouter = require('./controllers/group-configuration');
 const fdaConfigurationRouter = require('./controllers/fda-configuration');
 const fdcConfigurationRouter = require('./controllers/fdc-configuration');
 const mailerConfigurationRouter = require('./controllers/mailer-configuration');
+const factoryResetRouter = require('./controllers/factory-reset');
 const versionRouter = require('./controllers/version');
 const db = require('./database/database');
 const configService = require('./services/config-service');
@@ -37,6 +38,7 @@ app.use('/config/mailer', mailerConfigurationRouter);
 app.use('/config/mailtemplates', mailTemplateConfigurationRouter);
 app.use('/config/groups', groupConfigurationRouter);
 app.use('/config/fdas', fdaConfigurationRouter);
+app.use('/factory-reset', factoryResetRouter);
 app.use('/version', versionRouter);
 
 app.use(bodyParser.json());
