@@ -1,7 +1,7 @@
 echo "Stopping services"          
 systemctl stop fdc-*                                                                                                                
 rm -rf /opt/fdc                                                                                                                     
-git clone --depth 1 https://atlassian-inno-info:ATBBdc6X7RYtEvHqtLWaphzECJBu7EAC690E@bitbucket.org/innofriends/fdc-releases.git /opt/fdc
+git clone --depth 1 https://fdc_deploy:glpat-XxipS7s1tnsnuLx9uyDu@alm.innofriends.world/firedamper/fdc/fdc-releases.git /opt/fdc
 /bin/cp -rf /opt/fdc/fdc-mailer/lib* /lib/                                                                                          
 rm -rf /opt/fdc/.git    
 chown -R admin:admin /opt                                                                                                            

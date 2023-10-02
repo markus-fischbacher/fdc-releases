@@ -158,7 +158,9 @@
     "DISABLED": "Disabled",
     "STATUS": "Status",
     "HIGH": "On",
-    "LOW": "Off"
+    "LOW": "Off",
+    "NOCHANGE": "No change",
+    "MAINTENANCESTATE": "State Maintenancemode"
   },
   "MAILTEMPLATES": {
     "TITLE": "Mail templates",
@@ -268,7 +270,12 @@
       "TIMESTAMPFROM": "Timestamp - From",
       "TIMESTAMPTO": "Timestamp - To",
       "APPLY": "Apply Filter",
-      "DELETE": "Delete Filter"
+      "DELETE": "Delete Filter",
+      "PREDEFINED": {
+        "TIMEOUT": "Timeout",
+        "THERMOALARM": "Thermo Alarm",
+        "BUSERROR": "Bus error"
+      }
     },
     "DAMPER": {
       "TITLE": "Damper - Auditlog"

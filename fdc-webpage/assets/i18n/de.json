@@ -158,7 +158,9 @@
     "DISABLED": "Deaktiviert",
     "STATUS": "Zustand",
     "HIGH": "Aktiv",
-    "LOW": "Inaktiv"
+    "LOW": "Inaktiv",
+    "NOCHANGE": "Keine Änderung",
+    "MAINTENANCESTATE": "Status Wartungsmodus"
   },
   "MAILTEMPLATES": {
     "TITLE": "E-Mail Vorlage",
@@ -268,7 +270,12 @@
       "TIMESTAMPFROM": "Zeitstempel - Von",
       "TIMESTAMPTO": "Zeitstempel - Bis",
       "APPLY": "Filter anwenden",
-      "DELETE": "Filter zurücksetzen"
+      "DELETE": "Filter zurücksetzen",
+      "PREDEFINED": {
+        "TIMEOUT": "Timeout",
+        "THERMOALARM": "Thermo Alarm",
+        "BUSERROR": "Bus error"
+      }
     },
     "DAMPER": {
       "TITLE": "Klappen - Auditlog"
