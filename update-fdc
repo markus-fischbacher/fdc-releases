@@ -1,3 +1,8 @@
+if ! ping -c 1 alm.innofriends.world &> /dev/null; then
+  echo "The update server alm.innofriends.world is not reachable. Exiting!"
+  exit 1
+fi
+cd /opt
 echo "Stopping services"          
 systemctl stop fdc-*                                                                                                                
 rm -rf /opt/fdc                                                                                                                     
