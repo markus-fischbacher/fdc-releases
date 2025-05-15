@@ -36,8 +36,21 @@ rm -rf "$DEST_DIR"
 
 echo "Cloning new repository"
 if ! git clone --branch fdc-v1 --depth 1 "$REPO_URL" "$DEST_DIR"; then
-  echo "Cloning failed! Exiting to prevent an incomplete installation."
-  exit 1
+  echo "Cloning failed! Restoring backup..."
+  if [ -n "$BACKUP_DIR" ] && [ -d "$BACKUP_DIR" ]; then
+    cp -a "$BACKUP_DIR" "$DEST_DIR"
+    chown -R admin:admin /opt
+    echo "Backup restored from $BACKUP_DIR"
+    echo "Restarting services after restore..."
+    systemctl start fdc-application           
+    systemctl start fdc-mailer  
+    systemctl start fdc-webpage-backend
+    systemctl start fdc-bacnet
+    exit 1
+  else
+    echo "No valid backup found to restore! Manual intervention required."
+    exit 1
+  fi
 fi
 
 echo "Copying lib files"
