@@ -1,0 +1,53 @@
+#!/bin/bash
+
+REPO_URL="https://github.com/markus-fischbacher/fdc-releases.git"
+DEST_DIR="/opt/fdc"
+
+echo "Checking update server"
+if ! ping -c 1 github.com &> /dev/null; then
+  echo "The update server github.com is not reachable. Exiting!"
+  exit 1
+fi
+
+echo "Checking if repository is accessible"
+if ! GIT_TERMINAL_PROMPT=0 GIT_SSL_NO_VERIFY=1 GIT_TRACE=1 git ls-remote --exit-code "$REPO_URL" HEAD &> git-check.log; then
+  echo "Repository is not accessible. Exiting!"
+  exit 1
+fi                                                                                                             
+
+echo "Creating backup of existing installation"
+BACKUP_DIR=""
+if [ -d "$DEST_DIR" ]; then
+  TIMESTAMP="$(date '+%Y-%m-%d_%H-%M-%S')"
+  BACKUP_DIR="/mnt/mmc/backups/fdc-backup-${TIMESTAMP}"
+  if cp -a "$DEST_DIR" "$BACKUP_DIR"; then
+    echo "Backup created at $BACKUP_DIR"
+  else
+    echo "Backup failed! Aborting update to prevent data loss."
+    exit 1
+  fi
+fi
+
+echo "Stopping services"
+systemctl stop fdc-*   
+
+echo "Deleting old installation"
+rm -rf "$DEST_DIR"
+
+echo "Cloning new repository"
+if ! git clone --depth 1 "$REPO_URL" "$DEST_DIR"; then
+  echo "Cloning failed! Exiting to prevent an incomplete installation."
+  exit 1
+fi
+
+echo "Copying lib files"
+find "$DEST_DIR/fdc-mailer" -name "lib*" -exec cp -rf {} /lib/ \;
+
+rm -rf "$DEST_DIR/.git"    
+chown -R admin:admin /opt                                                                                                            
+
+echo "Starting services"                                                                                                            
+systemctl start fdc-application           
+systemctl start fdc-mailer  
+systemctl start fdc-webpage-backend
+systemctl start fdc-bacnet
